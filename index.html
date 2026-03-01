@@ -1,102 +1,921 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Orbenta UG — Boutique SAP Consulting</title>
+  <meta id="metaDescription" name="description" content="Orbenta UG is a boutique SAP consulting company in Paderborn: S/4HANA, Power BI, Fiori & ABAP.">
 
-    <!-- SEO -->
-    <title>ORBENTA UG – SAP & Data Consulting</title>
-    <meta name="description" content="ORBENTA UG – Consulting in SAP, Oracle, Data Governance and BI Reporting. Professional data and enterprise solutions.">
-    <meta name="keywords" content="SAP Consulting, Oracle Audit, Data Governance, BI Reporting, Power BI, Germany Consulting">
-    <meta name="author" content="ORBENTA UG">
-    <meta name="robots" content="index, follow">
+  <!-- Bootstrap (CDN as in your code) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="css_catalog/index.css">
+  <style>
+    :root{ --brand:#0d6efd; }
+    body{ scroll-behavior:smooth; }
+    .navbar-brand b{ letter-spacing:.2px }
+    main{ margin-top:72px; }
+    section{ padding:72px 0; }
+    .hero{ padding:96px 0; background:linear-gradient(180deg, rgba(13,110,253,.06), rgba(13,110,253,0)); }
+    .shadow-soft{ box-shadow:0 .5rem 1.25rem rgba(0,0,0,.08); }
+    .badge-soft{ background:rgba(13,110,253,.1); color:#0b5ed7; }
+    .rounded-3xl{ border-radius:1.25rem; }
+    .nav-link{ font-weight:600 }
+    .btn-cta{ position:fixed; bottom:22px; right:22px; z-index:1030 }
+    .anchor{ position:relative; top:-72px; visibility:hidden; }
+    .required:after{ content:"*"; color:#dc3545; margin-left:2px }
+    .lang-toggle .btn{ font-weight:700; letter-spacing:.2px; }
+    .brand-logo{ width:28px; height:28px; object-fit:contain; }
+    .legal a{ text-decoration:none; }
+    .legal small{ color:#6c757d; }
+  </style>
 </head>
 
-<body>
+<body data-bs-spy="scroll" data-bs-target="#topnav" data-bs-offset="80" tabindex="0">
 
-<div id="header-container"></div>
+  <!-- Navbar -->
+  <nav id="topnav" class="navbar navbar-expand-lg navbar-light bg-white border-bottom fixed-top py-2">
+    <div class="container">
 
-<section class="hero">
-
-<section class="hero">
-    <h1 data-i18n="hero_title"></h1>
-    <p data-i18n="hero_subtitle"></p>
-</section>
-
-<section class="services">
-
-    <form action="https://formspree.io/f/mgolbydy" method="POST">
-  <div class="row g-3">
-
-    <div class="col-md-6">
-      <label class="form-label required" for="name">Your Name</label>
-      <input type="text" id="name" name="name" class="form-control" required>
-    </div>
-
-    <div class="col-md-6">
-      <label class="form-label required" for="email">Email</label>
-      <input type="email" id="email" name="email" class="form-control" required>
-      <div class="form-text">
-        This will help us respond to your query.
+      <!-- Language switcher (top-left) -->
+      <div class="btn-group btn-group-sm me-2 lang-toggle" role="group" aria-label="Language switcher">
+        <button type="button" class="btn btn-outline-primary" data-lang="de">DE</button>
+        <button type="button" class="btn btn-outline-primary" data-lang="en">EN</button>
       </div>
-    </div>
 
-    <div class="col-12">
-      <label class="form-label required" for="message">Message</label>
-      <textarea id="message" name="message"
-                class="form-control"
-                rows="4"
-                required></textarea>
-      <div class="form-text">
-        What would you like to discuss?
-      </div>
-    </div>
+      <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="#home">
+			<img class="brand-logo" alt="Orbenta logo" src="logo_head.png">
+		<span><b data-i18n="brandMain">Orbenta</b> <span class="text-muted" data-i18n="brandSuffix">UG</span></span>
+      </a>
 
-    <!-- Optional subject line -->
-    <input type="hidden"
-           name="_subject"
-           value="New Website Contact Submission">
-
-    <div class="col-12">
-      <button class="btn btn-primary" type="submit">
-        <i class="bi bi-send me-1"></i>Submit
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent" aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
       </button>
-    </div>
 
+      <div class="collapse navbar-collapse" id="navContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#about" data-i18n="navAbout">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services" data-i18n="navServices">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#careers" data-i18n="navCareers">Careers</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects" data-i18n="navProjects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact" data-i18n="navContact">Contact</a></li>
+        </ul>
+        <div class="ms-lg-3 d-flex gap-2">
+          <a class="btn btn-outline-primary d-none d-lg-inline" href="#careers">
+            <i class="bi bi-briefcase me-1"></i><span data-i18n="btnFreelancers">For freelancers</span>
+          </a>
+          <a class="btn btn-primary" href="#contact">
+            <i class="bi bi-send me-1"></i><span data-i18n="btnGetInTouch">Get in touch</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="home">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <h1 class="display-5 fw-bold mb-3" data-i18n="heroTitle">Premium SAP consulting & analytics.</h1>
+            <p class="lead text-secondary" data-i18n="heroLead"></p>
+            <div class="d-flex gap-2 mt-3">
+              <a class="btn btn-primary btn-lg" href="#services">
+                <i class="bi bi-lightning-charge me-1"></i><span data-i18n="heroPrimaryCta">Our services</span>
+              </a>
+              <a class="btn btn-outline-secondary btn-lg" href="#about" data-i18n="heroSecondaryCta">Learn more</a>
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="p-4 bg-white rounded-3xl shadow-soft">
+              <div class="d-flex align-items-center mb-3">
+                <span class="badge badge-soft rounded-pill me-2" data-i18n="heroBadge">Boutique</span>
+              </div>
+              <ul class="list-unstyled mb-0 small" data-i18n-list="heroBullets"></ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- About Us -->
+    <span id="about" class="anchor"></span>
+    <section aria-labelledby="about-title">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-6 align-self-start">
+            <h2 id="about-title" class="fw-bold mb-3" data-i18n="aboutTitle">About Us</h2>
+            <p class="text-secondary" data-i18n="aboutP1"></p>
+            <p class="text-secondary mb-0" data-i18n="aboutP2"></p>
+
+            <div class="row g-3 mt-3">
+              <div class="col-6">
+                <div class="p-3 rounded-3 bg-white border shadow-soft h-100">
+                  <div class="fw-semibold" data-i18n="aboutStat1Title">Senior team</div>
+                  <div class="text-muted small" data-i18n="aboutStat1Text">End-to-end ownership</div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="p-3 rounded-3 bg-white border shadow-soft h-100">
+                  <div class="fw-semibold" data-i18n="aboutStat2Title">Pragmatic</div>
+                  <div class="text-muted small" data-i18n="aboutStat2Text">Clean docs & knowledge transfer</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Align this card to the top line as well -->
+          <div class="col-lg-6 align-self-start">
+            <div class="p-4 bg-white rounded-3 shadow-soft border">
+              <h5 class="fw-semibold mb-2">
+                <i class="bi bi-check2-circle me-2 text-success"></i>
+                <span data-i18n="aboutCardTitle">What we focus on</span>
+              </h5>
+              <ul class="small text-secondary mb-0" data-i18n-list="aboutCardBullets"></ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <span id="services" class="anchor"></span>
+    <section aria-labelledby="services-title" class="bg-light">
+      <div class="container">
+        <div class="d-flex align-items-end justify-content-between flex-wrap mb-3">
+          <div>
+            <h2 id="services-title" class="fw-bold mb-2" data-i18n="servicesTitle">Competencies & Services</h2>
+            <p class="text-secondary mb-0" data-i18n="servicesLead"></p>
+          </div>
+          <a class="btn btn-outline-secondary btn-sm" href="#contact">
+            <i class="bi bi-envelope me-1"></i><span data-i18n="servicesCta">Talk to us</span>
+          </a>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-soft">
+              <div class="card-body">
+                <h5 class="card-title"><i class="bi bi-box-seam me-2"></i><span data-i18n="svc1Title"></span></h5>
+                <p class="card-text text-secondary" data-i18n="svc1Text"></p>
+                <ul class="small text-secondary mb-0" data-i18n-list="svc1Bullets"></ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-soft">
+              <div class="card-body">
+                <h5 class="card-title"><i class="bi bi-bar-chart-line me-2"></i><span data-i18n="svc2Title"></span></h5>
+                <p class="card-text text-secondary" data-i18n="svc2Text"></p>
+                <ul class="small text-secondary mb-0" data-i18n-list="svc2Bullets"></ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-soft">
+              <div class="card-body">
+                <h5 class="card-title"><i class="bi bi-braces-asterisk me-2"></i><span data-i18n="svc3Title"></span></h5>
+                <p class="card-text text-secondary" data-i18n="svc3Text"></p>
+                <ul class="small text-secondary mb-0" data-i18n-list="svc3Bullets"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-secondary mt-4 mb-0" data-i18n="servicesNote"></p>
+      </div>
+    </section>
+
+    <!-- Careers -->
+    <span id="careers" class="anchor"></span>
+    <section aria-labelledby="careers-title">
+      <div class="container">
+        <div class="row justify-content-between align-items-start g-4">
+          <div class="col-lg-6 align-self-start">
+            <h2 id="careers-title" class="fw-bold mb-3" data-i18n="careersTitle">Careers</h2>
+            <p class="text-secondary" data-i18n="careersLead"></p>
+
+            <div class="accordion" id="jobs">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="job1h">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#job1" aria-expanded="true" aria-controls="job1">
+                    <span data-i18n="job1Title"></span>
+                  </button>
+                </h2>
+                <div id="job1" class="accordion-collapse collapse show" aria-labelledby="job1h" data-bs-parent="#jobs">
+                  <div class="accordion-body">
+                    <ul class="mb-3" data-i18n-list="job1Bullets"></ul>
+                    <a class="btn btn-sm btn-outline-primary" href="#contact">
+					  <span data-i18n="applyBtn">Get in touch</span>
+					</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="job2h">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#job2" aria-expanded="false" aria-controls="job2">
+                    <span data-i18n="job2Title"></span>
+                  </button>
+                </h2>
+                <div id="job2" class="accordion-collapse collapse" aria-labelledby="job2h" data-bs-parent="#jobs">
+                  <div class="accordion-body">
+                    <ul class="mb-3" data-i18n-list="job2Bullets"></ul>
+					<a class="btn btn-sm btn-outline-primary" href="#contact">
+					  <span data-i18n="applyBtn">Get in touch</span>
+					</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-lg-5">
+            <div class="p-4 bg-white border rounded-3 shadow-soft">
+              <h5 class="fw-semibold mb-2"><i class="bi bi-emoji-smile me-2"></i><span data-i18n="careersCardTitle"></span></h5>
+              <ul class="list-unstyled small text-secondary mb-0" data-i18n-list="careersCardBullets"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <span id="projects" class="anchor"></span>
+    <section aria-labelledby="projects-title" class="bg-light">
+      <div class="container">
+        <div class="d-flex align-items-end justify-content-between flex-wrap mb-3">
+          <div>
+            <h2 id="projects-title" class="fw-bold mb-2" data-i18n="projectsTitle"></h2>
+            <p class="text-secondary mb-0" data-i18n="projectsLead"></p>
+          </div>
+          <a class="btn btn-outline-secondary btn-sm" href="#contact">
+            <i class="bi bi-envelope me-1"></i><span data-i18n="projectsCta"></span>
+          </a>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-soft">
+              <img src="https://picsum.photos/seed/orbenta-kpi/640/360" class="card-img-top" alt="KPI Dashboard">
+              <div class="card-body">
+                <h5 class="card-title" data-i18n="prj1Title"></h5>
+                <p class="card-text text-secondary" data-i18n="prj1Text"></p>
+                <span class="badge text-bg-light border">Power BI</span>
+                <span class="badge text-bg-light border">SAP</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-soft">
+              <img src="https://picsum.photos/seed/orbenta-process/640/360" class="card-img-top" alt="Process rollout">
+              <div class="card-body">
+                <h5 class="card-title" data-i18n="prj2Title"></h5>
+                <p class="card-text text-secondary" data-i18n="prj2Text"></p>
+                <span class="badge text-bg-light border">S/4HANA</span>
+                <span class="badge text-bg-light border">Governance</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-soft">
+              <img src="https://picsum.photos/seed/orbenta-fiori/640/360" class="card-img-top" alt="Fiori app">
+              <div class="card-body">
+                <h5 class="card-title" data-i18n="prj3Title"></h5>
+                <p class="card-text text-secondary" data-i18n="prj3Text"></p>
+                <span class="badge text-bg-light border">Fiori</span>
+                <span class="badge text-bg-light border">ABAP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <span id="contact" class="anchor"></span>
+    <section aria-labelledby="contact-title">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-6 align-self-start">
+            <h2 id="contact-title" class="fw-bold mb-3" data-i18n="contactTitle"></h2>
+            <p class="text-secondary" data-i18n="contactLead"></p>
+
+
+
+		<form action="https://formspree.io/f/mgolbydy" method="POST">
+		  <div class="row g-3">
+
+			<div class="col-md-6">
+			  <label class="form-label required" for="name">Your Name</label>
+			  <input type="text" id="name" name="name" class="form-control" required>
+			</div>
+
+			<div class="col-md-6">
+			  <label class="form-label required" for="email">Email</label>
+			  <input type="email" id="email" name="email" class="form-control" required>
+			  <div class="form-text">
+				This will help us respond to your query.
+			  </div>
+			</div>
+
+			<div class="col-12">
+			  <label class="form-label required" for="message">Message</label>
+			  <textarea id="message" name="message"
+						class="form-control"
+						rows="4"
+						required></textarea>
+			  <div class="form-text">
+				What would you like to discuss?
+			  </div>
+			</div>
+
+			<!-- Optional subject line -->
+			<input type="hidden"
+				   name="_subject"
+				   value="New Website Contact Submission">
+
+			<div class="col-12">
+			  <button class="btn btn-primary" type="submit">
+				<i class="bi bi-send me-1"></i>Submit
+			  </button>
+			</div>
+
+		  </div>
+		</form>
+
+          <div class="col-lg-5 ms-auto">
+            <div class="p-4 bg-white border rounded-3 shadow-soft h-100">
+              <h5 class="fw-semibold mb-3"><i class="bi bi-geo-alt me-2"></i><span data-i18n="contactCardTitle"></span></h5>
+              <ul class="list-unstyled mb-0 text-secondary small">
+                <li class="mb-2"><i class="bi bi-envelope me-2"></i><a href="mailto:info@orbenta.de">info@orbenta.de</a></li>
+                <li class="mb-2"><i class="bi bi-telephone me-2"></i><a href="tel:+491637742347">+49 163 774 2347</a></li>
+                <li class="mb-2"><i class="bi bi-geo me-2"></i><span data-i18n="contactAddress"></span></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Impressum deleted -->
+
+
+
+
+  </main>
+
+  <!-- Back to top -->
+  <a href="#home" class="btn btn-primary btn-lg btn-cta" aria-label="Back to top"><i class="bi bi-arrow-up"></i></a>
+
+	<footer class="border-top py-4 bg-white">
+	  <div class="container">
+
+		<div class="row small text-secondary">
+
+		  <!-- Company & Legal Info -->
+		  <div class="col-md-8 mb-3 mb-md-0 legal" data-i18n-html="impressumHtml"></div>
+
+		  <!-- Right side -->
+		  <div class="col-md-4 text-md-end">
+			<div class="mb-2">
+			  © <span id="year"></span> <span data-i18n="footerCompany"></span>
+			</div>
+			<div>
+			  <a class="text-muted me-3" href="#" id="openPrivacyModal" data-i18n="footerPrivacy"></a>
+			  <a class="text-muted" href="#" id="openDisclaimerModal" data-i18n="footerDisclaimer"></a>
+			</div>
+		  </div>
+
+		</div>
+
+	  </div>
+	</footer>
+
+  <!-- Privacy & Cookie Consent (Modal) -->
+  <div class="modal fade" id="privacyConsentModal" tabindex="-1" aria-labelledby="privacyConsentTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="privacyConsentTitle" data-i18n="consentTitle">Privacy & Cookie Consent</h5>
+        </div>
+
+        <div class="modal-body">
+          <p class="text-secondary small mb-3" data-i18n="consentIntro"></p>
+          <div class="legal text-secondary small" id="consentFullText"></div>
+        </div>
+
+        <div class="modal-footer">
+          <!-- Fallback close, even if JS breaks -->
+          <button type="button" class="btn btn-outline-secondary" id="consentDecline" data-i18n="consentDecline" data-bs-dismiss="modal">
+            Decline
+          </button>
+          <button type="button" class="btn btn-primary" id="consentAccept" data-i18n="consentAccept" data-bs-dismiss="modal">
+            I agree
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
-</form>
+  
+  
+  <div class="modal fade" id="disclaimerModal" tabindex="-1" aria-labelledby="disclaimerTitleModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="disclaimerTitleModal" data-i18n="disclaimerTitle"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <div class="legal text-secondary small" data-i18n-html="disclaimerHtml"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <!-- Bootstrap bundle (must be before custom JS because we use bootstrap.Modal) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ======= EDIT LANGUAGES HERE =======
+    const I18N = {
+      en: {
+        metaTitle: "Orbenta UG — Boutique SAP Consulting",
+        metaDescription: "Orbenta UG is a boutique SAP consulting company in Paderborn: S/4HANA, Power BI, Fiori & ABAP.",
+
+        brandMain: "Orbenta",
+        brandSuffix: "UG",
+
+        navAbout: "About",
+        navServices: "Services",
+        navCareers: "Careers",
+        navProjects: "Projects",
+        navContact: "Contact",
+
+        consentTitle: "Privacy & Cookie Consent",
+        consentIntro: "Please read and accept our Privacy Policy and the use of necessary cookies/local storage to continue using this website.",
+        consentAccept: "I agree",
+        consentDecline: "Decline",
+        cookieNoteTitle: "Cookies & local storage (necessary)",
+        cookieNoteText: "This website does not use analytics or marketing cookies. We only store your language selection and consent status in your browser (local storage) to remember your choice.",
+
+        btnFreelancers: "For freelancers",
+        btnGetInTouch: "Get in touch",
+
+        heroTitle: "Premium SAP consulting & analytics.",
+        heroLead: "Senior, hands-on delivery for stable processes and transparent KPIs — from assessment to go-live.",
+        heroPrimaryCta: "Our services",
+        heroSecondaryCta: "Learn more",
+        heroBadge: "Boutique",
+        heroBadgeNote: "Senior delivery",
+        heroBullets: [
+          "SAP S/4HANA consulting & delivery",
+          "Power BI dashboards and automated reporting",
+          "Fiori & ABAP development (clean and maintainable)",
+          "Structured documentation & knowledge transfer"
+        ],
+
+        aboutTitle: "About Us",
+        aboutP1: "Orbenta UG is a boutique SAP consultancy focused on measurable business impact—not slide decks. We help you stabilize processes, create clarity in data and KPIs, and evolve your SAP landscape so decisions become faster, safer, and fact-based.",
+        aboutP2: "We turn requirements into outcomes: clean processes, clear ownership, transparent KPIs—implemented in SAP and sustainable in day-to-day operations. From assessment and solution design to implementation, go-live, and enablement, we deliver pragmatically and reliably.",
+        aboutStat1Title: "Senior team",
+        aboutStat1Text: "End-to-end ownership",
+        aboutStat2Title: "Pragmatic",
+        aboutStat2Text: "Clean docs & knowledge transfer",
+        aboutCardTitle: "What we focus on",
+        aboutCardBullets: [
+          "Stable processes that teams actually follow",
+          "KPIs and reporting you can trust",
+          "Solutions that are maintainable and audit-ready"
+        ],
+		
+		footerDisclaimer: "Disclaimer",
+		disclaimerTitle: "Disclaimer",
+		disclaimerHtml: `
+		<p><strong>Professional Disclaimer</strong></p>
+		<p>The information contained on this website is provided for general informational purposes only and does not constitute professional advice, legal advice, tax advice, or any other form of regulated advisory service.</p>
+		<p>Orbenta UG provides consulting services based on specific client engagements. Any statements, insights, or examples presented on this website represent general professional perspectives and should not be relied upon as a substitute for tailored advisory services.</p>
+		<p>While we strive to ensure accuracy and relevance, we make no representations or warranties, express or implied, regarding completeness, accuracy, reliability, or suitability of the information provided.</p>
+		<p>Any reliance you place on such information is strictly at your own risk. Professional decisions should always be made in consultation with qualified advisors under a formal engagement agreement.</p>
+		<p>Orbenta UG shall not be liable for any loss or damage arising from the use of this website or its contents.</p>
+		`,
+
+        servicesTitle: "Competencies & Services",
+        servicesLead: "Senior SAP consulting and development—pragmatic, structured, and outcome-driven.",
+        servicesCta: "Talk to us",
+        svc1Title: "SAP S/4HANA Consulting",
+        svc1Text: "From fit-to-standard to go-live, we support your S/4HANA initiatives end-to-end—ensuring stable processes and sustainable solutions.",
+        svc1Bullets: ["Process assessment & workshops", "Customizing, integration & cutover/go-live", "Stabilization, optimization & support"],
+        svc2Title: "Microsoft Power BI (Reporting & Dashboards)",
+        svc2Text: "We turn data into decision-ready insights: central dashboards, automated reporting, and KPI models people actually use—fast and well-governed.",
+        svc2Bullets: ["KPI design & data modeling", "Executive dashboards & automation", "Roles/permissions, enablement & best practices"],
+        svc3Title: "Fiori & ABAP Development",
+        svc3Text: "Fiori apps and ABAP enhancements built for adoption: clean code, solid documentation, and maintainability—from quick fixes to robust applications.",
+        svc3Bullets: ["UI5/Fiori apps & OData services", "ABAP enhancements, interfaces & integration", "Code reviews, QA & documentation"],
+        servicesNote: "Want a quick assessment? Send us a message—we’ll respond with a clear next step.",
+
+        careersTitle: "Careers",
+        careersLead: "Freelancers: Looking for your next SAP challenge? We regularly collaborate with experienced SAP (Senior) consultants and developers across all phases—from design and implementation to rollout and ongoing support.",
+        job1Title: "SAP Senior Consultant (Freelance)",
+        job1Bullets: ["Support across conception, implementation, rollout and support", "Structured delivery, documentation, and stakeholder alignment", "Focus on pragmatic solutions and measurable outcomes"],
+        job2Title: "SAP Developer (Freelance)",
+        job2Bullets: ["ABAP/Fiori implementation and enhancements", "Interfaces, OData services, and integrations", "Clean code, testing mindset, maintainable solutions"],
+        applyBtn: "Get in touch",
+        careersCardTitle: "Why you’ll like working with us",
+        careersCardBullets: ["Innovative projects and exciting topics", "Open, team-oriented collaboration", "Fair terms and clear communication"],
+
+        projectsTitle: "Projects",
+        projectsLead: "Typical outcomes we deliver",
+        projectsCta: "Start a project",
+        prj1Title: "Central KPI Dashboard",
+        prj1Text: "A single source of truth for management KPIs with automated refresh and clear governance.",
+        prj2Title: "Process Rollout & Stabilization",
+        prj2Text: "Fit-to-standard, rollout support, and post go-live stabilization for reliable daily operations.",
+        prj3Title: "Fiori App Extensions",
+        prj3Text: "User-friendly extensions and custom apps with clean ABAP backend and maintainable UI.",
+
+        contactTitle: "Contact",
+        contactLead: "Have a question or want to work together? Send us a message and we’ll get back soon.",
+        formNameLabel: "Name",
+        formNameInvalid: "Please enter your name.",
+        formEmailLabel: "Email",
+        formEmailInvalid: "Please enter a valid email.",
+        formCompanyLabel: "Company",
+        formMessageLabel: "Message",
+        formMessageInvalid: "Please add a short message.",
+        formSend: "Send",
+        formEmailInstead: "Email instead",
+        contactCardTitle: "Contact information",
+        contactAddress: "Orbenta UG, Vossricke 16, 33100 Paderborn, Germany",
+
+        impressumTitle: "Legal Notice (Imprint)",
+        impressumHtml: `
+          <p><strong>Orbenta UG (haftungsbeschränkt)</strong><br>
+          Vossricke 16<br>
+          33100 Paderborn<br>
+          Germany</p>
+          <p><strong>Managing Director:</strong> Lyudmila Ryzhikova</p>
+          <p><strong>Contact:</strong><br>
+          Phone: <a href="tel:+491637742347">+49 163 774 2347</a><br>
+          Email: <a href="mailto:info@orbenta.de">info@orbenta.de</a></p>
+          <p><strong>Register court:</strong> Amtsgericht Paderborn (Am Bogen 2–4, 33098 Paderborn)</p>
+          
+        `,
+
+        privacyTitle: "Privacy Policy",
+        privacyHtml: `
+          <p><strong>Controller</strong><br>
+          Orbenta UG (haftungsbeschränkt), Vossricke 16, 33100 Paderborn, Germany<br>
+          Email: <a href="mailto:info@orbenta.de">info@orbenta.de</a></p>
+
+          <p><strong>What data we process</strong><br>
+          When you visit this website, our hosting provider may automatically process technical data (e.g., IP address, time of access, requested pages, user agent) to ensure security and operation of the site (server logs).</p>
+
+          <p><strong>Contact form / inquiries</strong><br>
+          If you contact us via the form or email, we process your submitted data to handle your request and respond. Legal basis: Art. 6(1)(b) GDPR (pre-contractual measures) and/or Art. 6(1)(f) GDPR (legitimate interest in communication).</p>
+
+          <p><strong>Retention</strong><br>
+          We store inquiries only as long as necessary to process them and to comply with legal obligations.</p>
+
+          <p><strong>Your rights</strong><br>
+          You have the right to access, rectification, deletion, restriction, data portability, and objection. You may also lodge a complaint with a supervisory authority.</p>
+
+          <p><strong>External links</strong><br>
+          Our website may contain links to third-party websites. Their privacy practices apply when you visit them.</p>
+
+          <p><small>This text is a standard template and may need adjustment depending on your hosting, analytics, cookies, and embedded services.</small></p>
+        `,
+
+        footerCompany: "Orbenta UG",
+        footerImpressum: "Impressum",
+        footerPrivacy: "Privacy",
+      },
+
+      de: {
+        metaTitle: "Orbenta UG — Boutique SAP Beratung",
+        metaDescription: "Orbenta UG ist eine Boutique SAP Beratung in Paderborn: S/4HANA, Power BI, Fiori & ABAP.",
+
+        brandMain: "Orbenta",
+        brandSuffix: "UG",
+
+        navAbout: "Über uns",
+        navServices: "Leistungen",
+        navCareers: "Karriere",
+        navProjects: "Projekte",
+        navContact: "Kontakt",
+
+        consentTitle: "Datenschutz & Cookie-Einwilligung",
+        consentIntro: "Bitte lesen und akzeptieren Sie unsere Datenschutzerklärung sowie die Nutzung notwendiger Cookies/Local Storage, um diese Website weiter zu verwenden.",
+        consentAccept: "Ich stimme zu",
+        consentDecline: "Ablehnen",
+        cookieNoteTitle: "Cookies & Local Storage (notwendig)",
+        cookieNoteText: "Diese Website nutzt keine Analytics- oder Marketing-Cookies. Wir speichern nur Ihre Sprachauswahl und den Einwilligungsstatus im Browser (Local Storage), um Ihre Entscheidung zu merken.",
+
+        btnFreelancers: "Für Freelancer",
+        btnGetInTouch: "Kontakt",
+
+        heroTitle: "Premium SAP Beratung & Analytics.",
+        heroLead: "Senior, hands-on und ergebnisorientiert: stabile Prozesse und transparente KPIs – von der Analyse bis zum Go-Live.",
+        heroPrimaryCta: "Leistungen ansehen",
+        heroSecondaryCta: "Mehr erfahren",
+        heroBadge: "Boutique",
+        heroBadgeNote: "Senior Delivery",
+        heroBullets: [
+          "SAP S/4HANA Beratung & Umsetzung",
+          "Power BI Dashboards und automatisierte Reports",
+          "Fiori & ABAP Entwicklung (sauber & wartbar)",
+          "Dokumentation & Wissenstransfer"
+        ],
+
+        aboutTitle: "Über uns",
+        aboutP1: "Orbenta UG ist eine Boutique-Beratung für SAP – mit Fokus auf messbaren Business-Nutzen statt Folien. Wir unterstützen Sie dabei, Prozesse zu stabilisieren, Transparenz in Daten und Kennzahlen zu schaffen und Ihre SAP-Landschaft so weiterzuentwickeln, dass Entscheidungen schneller und sicherer werden.",
+        aboutP2: "Wir helfen Ihnen, Anforderungen in Ergebnisse zu verwandeln: saubere Prozesse, klare Verantwortlichkeiten, transparente Kennzahlen – umgesetzt in SAP und im Alltag tragfähig. Von der Analyse über Design und Implementierung bis zum Go-Live und Enablement liefern wir pragmatisch, strukturiert und zuverlässig.",
+        aboutStat1Title: "Senior-Team",
+        aboutStat1Text: "End-to-End Verantwortung",
+        aboutStat2Title: "Pragmatisch",
+        aboutStat2Text: "Saubere Doku & Wissenstransfer",
+        aboutCardTitle: "Worauf wir Wert legen",
+        aboutCardBullets: [
+          "Stabile Prozesse, die im Alltag funktionieren",
+          "KPIs & Reporting, denen man vertraut",
+          "Wartbare und auditfähige Lösungen"
+        ],
+
+        servicesTitle: "Kompetenzen & Services",
+        servicesLead: "Senior SAP Beratung und Entwicklung – pragmatisch, strukturiert und ergebnisorientiert.",
+        servicesCta: "Kontakt aufnehmen",
+        svc1Title: "SAP S/4HANA Consulting",
+        svc1Text: "Von Fit-to-Standard bis Go-Live: Wir begleiten Ihre S/4HANA-Vorhaben End-to-End und sorgen für stabile Prozesse und nachhaltige Lösungen.",
+        svc1Bullets: ["Prozessanalyse & Workshops", "Customizing, Integration & Cutover/Go-Live", "Stabilisierung, Optimierung & Support"],
+        svc2Title: "Microsoft Power BI (Reporting & Dashboards)",
+        svc2Text: "Wir machen aus Daten Entscheidungen: zentrale Dashboards, automatisierte Reports und KPI-Modelle, die verstanden und genutzt werden – performant und gut gesteuert.",
+        svc2Bullets: ["KPI-Design & Datenmodell", "Management-Dashboards & Automatisierung", "Rollen/Berechtigungen, Enablement & Best Practices"],
+        svc3Title: "Fiori & ABAP Entwicklung",
+        svc3Text: "Fiori-Apps und ABAP-Erweiterungen mit hoher Akzeptanz: sauber entwickelt, dokumentiert und wartbar – von kleinen Enhancements bis zu robusten Anwendungen.",
+        svc3Bullets: ["UI5/Fiori Apps & OData-Services", "ABAP Enhancements, Schnittstellen & Integration", "Code-Reviews, QA & Dokumentation"],
+        servicesNote: "Sie möchten einen schnellen Check? Schreiben Sie uns – wir melden uns mit einem klaren nächsten Schritt.",
+
+        careersTitle: "Karriere",
+        careersLead: "Freelancer auf der Suche nach neuen Herausforderungen? Wir suchen regelmäßig SAP (Senior) Consultants und Developer, die unsere Kundenprojekte in unterschiedlichen Phasen unterstützen – von Konzeption und Umsetzung über Einführung und Rollout bis hin zum laufenden Support.",
+        job1Title: "SAP Senior Consultant (Freelance)",
+        job1Bullets: ["Unterstützung in Konzeption, Umsetzung, Einführung, Rollout und Support", "Strukturierte Lieferung, Dokumentation und Abstimmung mit Stakeholdern", "Pragmatische Lösungen mit messbaren Ergebnissen"],
+        job2Title: "SAP Developer (Freelance)",
+        job2Bullets: ["ABAP/Fiori Umsetzung und Erweiterungen", "Schnittstellen, OData-Services und Integrationen", "Sauberer Code, Test-Mindset und Wartbarkeit"],
+        applyBtn: "Kontakt aufnehmen",
+        careersCardTitle: "Warum Orbenta?",
+        careersCardBullets: ["Innovative Projekte und spannende Themen", "Offene, teamorientierte Zusammenarbeit", "Faire Rahmenbedingungen und klare Kommunikation"],
+
+        projectsTitle: "Projekte",
+        projectsLead: "Typische Ergebnisse, die wir liefern (Beispiele).",
+        projectsCta: "Projekt starten",
+        prj1Title: "Zentrales KPI-Dashboard",
+        prj1Text: "Eine verlässliche Sicht auf Management-KPIs mit automatisierten Aktualisierungen und klarer Governance.",
+        prj2Title: "Prozess-Rollout & Stabilisierung",
+        prj2Text: "Fit-to-Standard, Rollout-Support und Stabilisierung nach Go-Live für zuverlässigen Betrieb.",
+        prj3Title: "Fiori App Erweiterungen",
+        prj3Text: "Nutzerfreundliche Erweiterungen und Apps mit sauberem ABAP-Backend und wartbarer UI.",
+
+        contactTitle: "Kontakt",
+        contactLead: "Frage oder Projektidee? Schreiben Sie uns – wir melden uns kurzfristig zurück.",
+        formNameLabel: "Name",
+        formNameInvalid: "Bitte geben Sie Ihren Namen ein.",
+        formEmailLabel: "E-Mail",
+        formEmailInvalid: "Bitte geben Sie eine gültige E-Mail ein.",
+        formCompanyLabel: "Firma",
+        formMessageLabel: "Nachricht",
+        formMessageInvalid: "Bitte schreiben Sie eine kurze Nachricht.",
+        formSend: "Senden",
+        formEmailInstead: "E-Mail statt Formular",
+        contactCardTitle: "Kontaktinformationen",
+        contactAddress: "Orbenta UG, Vossricke 16, 33100 Paderborn, Deutschland",
+
+        impressumTitle: "Impressum",
+        impressumHtml: `
+          <p><strong>Orbenta UG (haftungsbeschränkt)</strong><br>
+          Vossricke 16<br>
+          33100 Paderborn</p>
+
+          <p><strong>Geschäftsführer:</strong> Lyudmila Ryzhikova</p>
+
+          <p><strong>Kontakt</strong><br>
+          Telefon: <a href="tel:+491637742347">+49 163 774 2347</a><br>
+          E-Mail: <a href="mailto:info@orbenta.de">info@orbenta.de</a></p>
+
+          <p><strong>Registergericht:</strong> Amtsgericht Paderborn (Am Bogen 2–4, 33098 Paderborn)</p>
+
+          
+        `,
+
+        privacyTitle: "Datenschutzerklärung",
+        privacyHtml: `
+          <p><strong>Verantwortlicher</strong><br>
+          Orbenta UG (haftungsbeschränkt), Vossricke 16, 33100 Paderborn<br>
+          E-Mail: <a href="mailto:info@orbenta.de">info@orbenta.de</a></p>
+
+          <p><strong>Verarbeitung beim Websitebesuch</strong><br>
+          Beim Aufruf dieser Website können durch den Hosting-Provider technische Daten (z. B. IP-Adresse, Zeitpunkt des Zugriffs, aufgerufene Seiten, User-Agent) verarbeitet werden, um die Sicherheit und den Betrieb der Website zu gewährleisten (Server-Logs).</p>
+
+          <p><strong>Kontaktaufnahme</strong><br>
+          Wenn Sie uns per Formular oder E-Mail kontaktieren, verarbeiten wir Ihre Angaben zur Bearbeitung der Anfrage und für Rückfragen. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) und/oder Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an Kommunikation).</p>
+
+          <p><strong>Speicherdauer</strong><br>
+          Wir speichern Anfragen nur so lange, wie es für die Bearbeitung erforderlich ist und gesetzliche Pflichten bestehen.</p>
+
+          <p><strong>Ihre Rechte</strong><br>
+          Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit sowie Widerspruch. Außerdem können Sie sich bei einer Aufsichtsbehörde beschweren.</p>
+
+          <p><strong>Externe Links</strong><br>
+          Diese Website kann Links zu Websites Dritter enthalten. Für deren Inhalte und Datenschutzpraktiken sind die jeweiligen Anbieter verantwortlich.</p>
+
+          <p><small>Diese Datenschutzerklärung ist eine Standardvorlage und sollte je nach Hosting, Analytics, Cookies und Einbindungen (z. B. YouTube) angepasst werden.</small></p>
+        `,
+		
+		
+		footerDisclaimer: "Haftungsausschluss",
+		disclaimerTitle: "Haftungsausschluss",
+		disclaimerHtml: `
+		<p><strong>Beruflicher Haftungsausschluss</strong></p>
+		<p>Die auf dieser Website enthaltenen Informationen dienen ausschließlich allgemeinen Informationszwecken und stellen keine rechtliche, steuerliche oder sonstige professionelle Beratung dar.</p>
+		<p>Orbenta UG erbringt Beratungsleistungen ausschließlich im Rahmen individueller Mandate. Die auf dieser Website dargestellten Inhalte, Einschätzungen oder Beispiele stellen allgemeine fachliche Perspektiven dar und ersetzen keine auf den Einzelfall abgestimmte Beratung.</p>
+		<p>Trotz sorgfältiger Erstellung übernehmen wir keine Gewähr für Richtigkeit, Vollständigkeit oder Aktualität der bereitgestellten Informationen.</p>
+		<p>Jegliche Nutzung der Inhalte erfolgt auf eigenes Risiko. Fachliche Entscheidungen sollten ausschließlich auf Grundlage einer individuellen Beratung und eines formellen Vertragsverhältnisses getroffen werden.</p>
+		<p>Orbenta UG haftet nicht für Schäden, die aus der Nutzung dieser Website entstehen.</p>
+		`,
+
+        footerCompany: "Orbenta UG",
+        footerImpressum: "Impressum",
+        footerPrivacy: "Datenschutz",
+      }
+    };
+    // ==================================
+
+    function renderList(el, items) {
+      if (!el) return;
+      el.innerHTML = items.map(i => `<li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>${i}</li>`).join("");
+    }
+
+    function applyLang(lang) {
+      const t = I18N[lang] || I18N.en;
+
+      // metadata
+      document.documentElement.lang = lang;
+      document.title = t.metaTitle;
+      const md = document.getElementById("metaDescription");
+      if (md) md.setAttribute("content", t.metaDescription);
+
+      // text bindings
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (t[key] !== undefined) el.textContent = t[key];
+      });
+
+      // html bindings (for legal pages)
+      document.querySelectorAll("[data-i18n-html]").forEach(el => {
+        const key = el.getAttribute("data-i18n-html");
+        if (t[key] !== undefined) el.innerHTML = t[key];
+      });
+
+      // list bindings
+      document.querySelectorAll("[data-i18n-list]").forEach(el => {
+        const key = el.getAttribute("data-i18n-list");
+        renderList(el, t[key] || []);
+      });
+
+      // active language button
+      document.querySelectorAll("[data-lang]").forEach(btn => {
+        btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+      });
+
+      localStorage.setItem("orbenta_lang", lang);
+    }
+
+    // ===== Privacy/Cookie Consent (shows until accepted) =====
+    const CONSENT_KEY = "orbenta_privacy_consent_v1";
+    let consentModalInstance = null;
+
+    function renderConsentText(lang) {
+      const t = I18N[lang] || I18N.en;
+      const box = document.getElementById("consentFullText");
+      if (!box) return;
+
+      box.innerHTML = `
+        <div class="mb-3">
+          <p class="mb-1"><strong>${t.cookieNoteTitle}</strong></p>
+          <p class="mb-0">${t.cookieNoteText}</p>
+        </div>
+        <hr class="my-3">
+        ${t.privacyHtml}
+      `;
+    }
+
+    function ensureConsentPopup(lang) {
+      const el = document.getElementById("privacyConsentModal");
+      if (!el || !window.bootstrap) return;
+
+      if (!consentModalInstance) {
+        consentModalInstance = new bootstrap.Modal(el, { backdrop: "static", keyboard: false });
+
+        document.getElementById("consentAccept")?.addEventListener("click", () => {
+          localStorage.setItem(CONSENT_KEY, "accepted");
+          consentModalInstance.hide();
+        });
+
+        document.getElementById("consentDecline")?.addEventListener("click", () => {
+          // Do NOT save anything -> it will show again next visit (until accepted)
+          consentModalInstance.hide();
+        });
+      }
+
+      renderConsentText(lang);
+
+      const accepted = localStorage.getItem(CONSENT_KEY) === "accepted";
+      if (!accepted) consentModalInstance.show();
+    }
+	
+	function openPrivacyModal(lang) {
+	  const el = document.getElementById("privacyConsentModal");
+	  if (!el || !window.bootstrap) return;
+
+	  if (!consentModalInstance) {
+		consentModalInstance = new bootstrap.Modal(el, { backdrop: "static", keyboard: false });
+	  }
+
+	  renderConsentText(lang);
+	  consentModalInstance.show();
+	}
+
+    function detectInitialLang() {
+      const saved = localStorage.getItem("orbenta_lang");
+      if (saved === "de" || saved === "en") return saved;
+
+      const browserLang = (navigator.language || "en").toLowerCase();
+      return browserLang.startsWith("de") ? "de" : "en";
+    }
+
+    // Run AFTER DOM is ready so modal elements exist
+    window.addEventListener("DOMContentLoaded", () => {
+      const initialLang = detectInitialLang();
+      applyLang(initialLang);
+      ensureConsentPopup(initialLang);
+
+      // single language handler
+      document.querySelectorAll("[data-lang]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const lang = btn.getAttribute("data-lang");
+          applyLang(lang);
+          ensureConsentPopup(lang);
+        });
+      });
+
+      // Bootstrap validation
+
+	  
+		document.getElementById("openPrivacyModal")?.addEventListener("click", (e) => {
+		  e.preventDefault();
+		  const lang = localStorage.getItem("orbenta_lang") || detectInitialLang();
+		  openPrivacyModal(lang);
+		});
     
-    <div class="card" onclick="location.href='component/sap.html'">
-        <h2>SAP</h2>
-        <p data-i18n="sap_text"></p>
-    </div>
+	const impressumToggle = document.getElementById("toggleImpressum");
+	const impressumBox = document.getElementById("impressumCompact");
 
-    <div class="card" onclick="location.href='component/oracle.html'">
-        <h2>ORACLE</h2>
-        <p data-i18n="oracle_text"></p>
-    </div>
+	if (impressumToggle && impressumBox) {
+	  impressumToggle.addEventListener("click", (e) => {
+		e.preventDefault();
+		const collapse = new bootstrap.Collapse(impressumBox, {
+		  toggle: true
+		});
+	  });
+	}
+	
+	
+	document.getElementById("openDisclaimerModal")?.addEventListener("click", (e) => {
+	  e.preventDefault();
+	  const lang = localStorage.getItem("orbenta_lang") || detectInitialLang();
 
-    <div class="card" onclick="location.href='component/datagovernance.html'">
-        <h2>Data Governance</h2>
-        <p data-i18n="dg_text"></p>
-    </div>
+	  const modalEl = document.getElementById("disclaimerModal");
+	  if (!modalEl) return;
 
-    <div class="card" onclick="location.href='component/bireporting.html'">
-        <h2>BI Reporting</h2>
-        <p data-i18n="bi_text"></p>
-    </div>
-
-</section>
-
-<div id="footer-container"></div>
-<script src="js_catalog/header.js"></script>
-<script src="js_catalog/lang.js"></script>
-<script src="js_catalog/footer.js"></script>
-<script src="js_catalog/cookie-consent.js"></script>
-
+	  const modal = new bootstrap.Modal(modalEl);
+	  modal.show();
+	});
+	
+	});
+  </script>
 </body>
-
 </html>
